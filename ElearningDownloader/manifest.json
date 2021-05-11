@@ -1,0 +1,35 @@
+{
+  "name": "Videolezioni Downloader(elearning)",
+  "description": "Scarica tutte le videolezioni dalla piattaforma di elearning",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "downloads",
+    "background",
+    "tabs",
+    "*://elearning.polito.it/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://elearning.polito.it/*"],
+      "js": ["script.js"],
+      "run_at": "document_end",
+      "all_frames":true
+    }
+  ],
+  "web_accessible_resources": [
+    "js/*",
+    "css/*",
+    "img/*",
+    "html/*"
+  ],
+  "browser_action": {
+		"default_icon": "Downloads-icon-16-off.png"
+	},
+  "icons": { "16": "Downloads-icon-16.png", "128": "Downloads-icon.png" },
+  "incognito" : "split"
+}
